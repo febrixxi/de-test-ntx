@@ -1,2 +1,14 @@
-version: "3"
+version: '3.8'
+
 services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile  # The Dockerfile for the FastAPI app
+    ports:
+      - "6001:6000/tcp"  # Map the container's port 6000 to the host machine's port 6000
+
+  etl:
+    build:
+      context: ./etl
+      dockerfile: Dockerfile  # The Dockerfile for the ETL script
